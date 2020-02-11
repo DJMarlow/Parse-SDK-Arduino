@@ -27,7 +27,7 @@
 // Set DEBUG to true to see serial debug output for the main stages
 // of the Parse client.
 const bool DEBUG = true;
-const char* PARSE_API = "api.parse.com";
+//const char* PARSE_API = "api.parse.com";
 const char* USER_AGENT = "arduino-esp8266.v.1.0.1";
 const char* CLIENT_VERSION = "1.0.3";
 const char* PARSE_PUSH = "push.parse.com";
