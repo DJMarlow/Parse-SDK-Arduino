@@ -1,7 +1,6 @@
 #ifndef __CONNECTION_CLIENT_H__
 #define __CONNECTION_CLIENT_H__
 
-
 #include <Arduino.h>
 
 #ifdef ARDUINO_SAMD_ZERO

@@ -32,19 +32,20 @@
 /*! \class ParseObjectGet()
  *  \brief Class responsible for getting the object from Parse.
  */
-class ParseObjectGet : public ParseRequest {
+class ParseObjectGet : public ParseRequest
+{
 public:
-  /*! \fn ParseObjectGet()
+    /*! \fn ParseObjectGet()
    *  \brief Constructor of ParseObjectGet object
    */
-  ParseObjectGet();
+    ParseObjectGet();
 
-  /*! \fn ParseResponse send() override
+    /*! \fn ParseResponse send() override
    *  \brief launch the get object request and execute.
    *
    *  \result response of request
    */
-  ParseResponse send();
+    ParseResponse send();
 };
 
 #endif

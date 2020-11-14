@@ -33,23 +33,25 @@
 /*! \class ParseRequest
  *  \brief Class responsible for Parse requests
  */
-class ParseRequest {
+class ParseRequest
+{
 protected:
-	String httpPath;
-	String requestBody;
-	bool isBodySet;
+    String httpPath;
+    String requestBody;
+    bool isBodySet;
+
 public:
-  /*! \fn ParseRequest()
+    /*! \fn ParseRequest()
    *  \brief Constructor of ParseRequest object
    */
-  ParseRequest();
+    ParseRequest();
 
-  /*! \fn ~ParseRequest()
+    /*! \fn ~ParseRequest()
    *  \brief Destructor of ParseRequest object
    */
-  ~ParseRequest();
+    ~ParseRequest();
 
-  /*! \fn void setClassName(const char* className)
+    /*! \fn void setClassName(const char* className)
    *  \brief set the ParseObject class name in which request will be performed.
    *
    * NOTE: ONLY use when request(GET/UPDATE/DELETE/CREATE/QUERY) is related with object
@@ -59,9 +61,9 @@ public:
    *
    *  \param className class name.
    */
-  void setClassName(const char* className);
+    void setClassName(const char *className);
 
-  /*! \fn void setObjectId(const char* objectId)
+    /*! \fn void setObjectId(const char* objectId)
    *  \brief set the ParseObject object id in which request will be performed.
    *
    * NOTE: ONLY setObjectId for GET/UPDATE/DELETE request on a specific object
@@ -69,14 +71,14 @@ public:
    *
    *  \param objectId object id.
    */
-  void setObjectId(const char* objectId);
+    void setObjectId(const char *objectId);
 
-  /*! \fn virtual ParseResponse send()
+    /*! \fn virtual ParseResponse send()
    *  \brief execute the parse request.
    *
    *  \result response of request
    */
-  virtual ParseResponse send() = 0;
+    virtual ParseResponse send() = 0;
 };
 
 #endif

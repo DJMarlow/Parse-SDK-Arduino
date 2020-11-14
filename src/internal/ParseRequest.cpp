@@ -24,9 +24,9 @@
 
 ParseRequest::ParseRequest()
 {
-	requestBody = "{";
-	httpPath = "/";
-	isBodySet = false;
+    requestBody = "{";
+    httpPath = "/";
+    isBodySet = false;
 }
 
 ParseRequest::~ParseRequest()
@@ -35,27 +35,27 @@ ParseRequest::~ParseRequest()
 
 void ParseRequest::setObjectId(const char *key)
 {
-	httpPath += "/";
-	httpPath += key;
+    httpPath += "/";
+    httpPath += key;
 }
 
 void ParseRequest::setClassName(const char *className)
 {
-	if (strcmp(className, "_User") == 0)
-	{
-		httpPath += "users";
-	}
-	else if (strcmp(className, "_Installation") == 0)
-	{
-		httpPath += "installations";
-	}
-	else if (strcmp(className, "_Role") == 0)
-	{
-		httpPath += "roles";
-	}
-	else
-	{
-		httpPath += "classes/";
-		httpPath += className;
-	}
+    if (strcmp(className, "_User") == 0)
+    {
+        httpPath += "users";
+    }
+    else if (strcmp(className, "_Installation") == 0)
+    {
+        httpPath += "installations";
+    }
+    else if (strcmp(className, "_Role") == 0)
+    {
+        httpPath += "roles";
+    }
+    else
+    {
+        httpPath += "classes/";
+        httpPath += className;
+    }
 }

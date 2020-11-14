@@ -32,19 +32,20 @@
 /*! \class ParseCloudFunction
  *  \brief Class responsible for cloud function
  */
-class ParseCloudFunction : public ParseObjectCreate {
+class ParseCloudFunction : public ParseObjectCreate
+{
 public:
-  /*! \fn ParseCloudFunction()
+    /*! \fn ParseCloudFunction()
    *  \brief Constructor of ParseCloudFunction object
    */
-  ParseCloudFunction();
+    ParseCloudFunction();
 
-  /*! \fn void setFunctionName(const char* function)
+    /*! \fn void setFunctionName(const char* function)
    *  \brief Set the cloud funciton name to be called.
    *
    *  \param function Function name
    */
-  void setFunctionName(const char* function);
+    void setFunctionName(const char *function);
 };
 
 #endif

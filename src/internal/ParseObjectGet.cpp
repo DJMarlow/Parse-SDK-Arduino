@@ -23,9 +23,11 @@
 #include "ParseClient.h"
 #include "ParseObjectGet.h"
 
-ParseObjectGet::ParseObjectGet() : ParseRequest() {
+ParseObjectGet::ParseObjectGet() : ParseRequest()
+{
 }
 
-ParseResponse ParseObjectGet::send() {
-	return Parse.sendRequest("GET", httpPath, "", "");
+ParseResponse ParseObjectGet::send()
+{
+    return Parse.sendRequest("GET", httpPath, "", "");
 }

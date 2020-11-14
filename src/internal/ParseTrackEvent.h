@@ -32,19 +32,20 @@
 /*! \class ParseTrackEvent
  *  \brief Class responsible for tracking an event.
  */
-class ParseTrackEvent : public ParseObjectCreate {
+class ParseTrackEvent : public ParseObjectCreate
+{
 public:
-  /*! \fn ParseTrackEvent()
+    /*! \fn ParseTrackEvent()
    *  \brief Constructor of ParseTrackEvent object
    */
-  ParseTrackEvent();
+    ParseTrackEvent();
 
-  /*! \fn void setEventName(const char* eventName)
+    /*! \fn void setEventName(const char* eventName)
    *  \brief set the track event name, which will be available in Parse Analytics
    *
    *  \param eventName event name.
    */
-  void setEventName(const char* eventName);
+    void setEventName(const char *eventName);
 };
 
 #endif

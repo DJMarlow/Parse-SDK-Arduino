@@ -32,19 +32,20 @@
 /*! \class ParseObjectUpdate
  *  \brief Class responsible for object update
  */
-class ParseObjectUpdate : public ParseObjectCreate {
+class ParseObjectUpdate : public ParseObjectCreate
+{
 public:
-  /*! \fn ParseObjectUpdate()
+    /*! \fn ParseObjectUpdate()
    *  \brief Constructor of ParseObjectUpdate object
    */
-  ParseObjectUpdate();
+    ParseObjectUpdate();
 
-  /*! \fn ParseResponse send() override
+    /*! \fn ParseResponse send() override
    *  \brief launch the update object request and execute.
    *
    *  \result the response
    */
-  ParseResponse send();
+    ParseResponse send();
 };
 
 #endif

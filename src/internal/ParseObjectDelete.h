@@ -32,19 +32,20 @@
 /*! \class ParseObjectDelete
  *  \brief Class responsible for object deletion.
  */
-class ParseObjectDelete : public ParseRequest {
+class ParseObjectDelete : public ParseRequest
+{
 public:
-  /*! \fn ParseObjectDelete()
+    /*! \fn ParseObjectDelete()
    *  \brief Constructor of ParseObjectDelete object
    */
-  ParseObjectDelete();
+    ParseObjectDelete();
 
-  /*! \fn ParseResponse send() override
+    /*! \fn ParseResponse send() override
    *  \brief launch the object deletion request and execute.
    *
    *  \return  response of request.
    */
-  ParseResponse send();
+    ParseResponse send();
 };
 
 #endif

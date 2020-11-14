@@ -33,25 +33,25 @@
 /*! \class ParsePush
  *  \brief Class with a push. Not created directly.
  */
-class ParsePush : public ParseResponse {
+class ParsePush : public ParseResponse
+{
 protected:
-  ParsePush(ConnectionClient* pushClient);
+    ParsePush(ConnectionClient *pushClient);
 
-#if defined (ARDUINO_SAMD_ZERO) || defined(ARDUINO_ARCH_ESP8266)
-  char lookahead[5];
-  void setLookahead(const char *read_data);
-  void read();
-#endif  // defined (ARDUINO_SAMD_ZERO)
+#if defined(ARDUINO_SAMD_ZERO) || defined(ARDUINO_ARCH_ESP8266)
+    char lookahead[5];
+    void setLookahead(const char *read_data);
+    void read();
+#endif // defined (ARDUINO_SAMD_ZERO)
 
 public:
-
-  /*! \fn void close()
+    /*! \fn void close()
    *  \brief free resource including data buffer.
    *
    */
-  void close();
+    void close();
 
-  friend class ParseClient;
+    friend class ParseClient;
 };
 
 #endif

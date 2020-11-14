@@ -36,44 +36,44 @@
 /*! \class ParseClient
  *  \brief Class responsible for Parse connection
  */
-class ParseClient {
+class ParseClient
+{
 private:
-  char applicationId[41]; // APPLICATION_ID_MAX_LEN
-  char clientKey[41]; // CLIENT_KEY_MAX_LEN
-  char serverURL[100]; // SERVER_URL_MAX_LEN
-  char hostFingerprint[100]; // HOST_FINGERPRINT_MAX_LEN
-  char installationId[37]; // INSTALLATION_ID_MAX_LEN
-  char sessionToken[41]; // SESSION_TOKEN_MAX_LEN
+    char applicationId[41];    // APPLICATION_ID_MAX_LEN
+    char clientKey[41];        // CLIENT_KEY_MAX_LEN
+    char serverURL[100];       // SERVER_URL_MAX_LEN
+    char hostFingerprint[100]; // HOST_FINGERPRINT_MAX_LEN
+    char installationId[37];   // INSTALLATION_ID_MAX_LEN
+    char sessionToken[41];     // SESSION_TOKEN_MAX_LEN
 
-  ConnectionClient client;
-  ConnectionClient pushClient;
+    ConnectionClient client;
+    ConnectionClient pushClient;
 
-  unsigned long lastHeartbeat;
+    unsigned long lastHeartbeat;
 
-  void read(ConnectionClient* client, char* buf, int len);
+    void read(ConnectionClient *client, char *buf, int len);
 
-#if defined (ARDUINO_SAMD_ZERO) || defined(ARDUINO_ARCH_ESP8266)
-  char lastPushTime[41]; // PUSH_TIME_MAX_LEN
-  bool dataIsDirty;
-  char pushBuff[5];
+#if defined(ARDUINO_SAMD_ZERO) || defined(ARDUINO_ARCH_ESP8266)
+    char lastPushTime[41]; // PUSH_TIME_MAX_LEN
+    bool dataIsDirty;
+    char pushBuff[5];
 
-  void saveKeys();
-  void restoreKeys();
-  void saveLastPushTime(char *time);
+    void saveKeys();
+    void restoreKeys();
+    void saveLastPushTime(char *time);
 #endif
 
 public:
-  /*! \fn ParseClient()
+    /*! \fn ParseClient()
    *  \brief Constructor of ParseClient object
    */
-  ParseClient();
-  /*! \fn ParseClient()
+    ParseClient();
+    /*! \fn ParseClient()
    *  \brief Destructor of ParseClient object
    */
-  ~ParseClient();
+    ~ParseClient();
 
-
-  /*! \fn begin(const char *applicationId, const char *clientKey)
+    /*! \fn begin(const char *applicationId, const char *clientKey)
    *  \brief Initialize the Parse client and user session
    *
    *  This method only initializes the Parse client, used for subsequent API requests. It does
@@ -82,9 +82,9 @@ public:
    *  \param applicationId The application id for the Parse application. (required)
    *  \param clientKey     The client API key for the Parse application. (required)
    */
-  void begin(const char *applicationId, const char *clientKey);
+    void begin(const char *applicationId, const char *clientKey);
 
-  /*! \fn void setServerURL(const char *serverURL)
+    /*! \fn void setServerURL(const char *serverURL)
    *  \brief Set the installation object id for this client.
    *
    *  Set the custom server url for this client. This needs to be called
@@ -93,8 +93,8 @@ public:
    *  \param  serverURL     The server URL to which client should connect.
    *
    */
-  void setServerURL(const char *serverURL);
-  
+    void setServerURL(const char *serverURL);
+
     /*! \fn void setHostFingerprint(const char *hostFingerprint)
    *  \brief Set the host fingerprint this client.
    *
@@ -104,17 +104,17 @@ public:
    *  \param  hostFingerprint     The host fingerprint of the serverURL.
    *
    */
-  void setHostFingerprint(const char *hostFingerprint);
-  
+    void setHostFingerprint(const char *hostFingerprint);
+
     /*! \fn setClientInsecure()
    *  \brief Sets the connection client to insecure
    *
    *  
    *
    */
-  void setClientInsecure();
+    void setClientInsecure();
 
-  /*! \fn void setInstallationId(const char *installationId)
+    /*! \fn void setInstallationId(const char *installationId)
    *  \brief Set the installation object id for this client.
    *
    *  Set the installation object id for this client. If this is not called before making an
@@ -124,9 +124,9 @@ public:
    *  \param  installationId   The installation id to be used by the client.
    *
    */
-  void setInstallationId(const char *installationId);
+    void setInstallationId(const char *installationId);
 
-  /*! \fn const char * getInstallationId()
+    /*! \fn const char * getInstallationId()
    *  \brief Return the client installation id
    *
    *  Return the installation id for the client. If called before the installation id for the
@@ -145,9 +145,9 @@ public:
    *  \result                      The instalaltion id.
    *
    */
-  const char* getInstallationId();
+    const char *getInstallationId();
 
-  /*! \fn void setSessionToken(const char *sessionToken)
+    /*! \fn void setSessionToken(const char *sessionToken)
    *  \brief Set the session token for the Parse client
    *
    *  \param  sessionToken     The new session token. All subsequent API calls will
@@ -155,26 +155,26 @@ public:
    *                           If this is NULL, the client will be unauthenticated.
    *
    */
-  void setSessionToken(const char* sessionToken);
+    void setSessionToken(const char *sessionToken);
 
-  /*! \fn void clearSessionToken()
+    /*! \fn void clearSessionToken()
    *  \brief Clear the session token
    *
    *  Same as setSessionToken(NULL);
    *
    */
-  void clearSessionToken();
+    void clearSessionToken();
 
-  /*! \fn const char *getSessionToken()
+    /*! \fn const char *getSessionToken()
    *  \brief Return the client session token.
    *
    *  Return the session token for the client, or NULL if there isn't one.
    *
    *  \result                  The session token.
    */
-  const char* getSessionToken();
+    const char *getSessionToken();
 
-  /*! \fn ParseResponse sendRequest(const char* httpVerb, const char* httpPath, const char* requestBody, const char* urlParams)
+    /*! \fn ParseResponse sendRequest(const char* httpVerb, const char* httpPath, const char* requestBody, const char* urlParams)
    *  \brief Directly call REST API in Parse.
    *
    *  \param   httpVerb - GET/DELETE/PUT/POST
@@ -186,9 +186,9 @@ public:
    *  NOTE: ParseObjectCreate, ParseObjectUpdate, ParseObjectDelete, ParseGETObject,
    *  ParseQuery, ParseCloudFunction, ParseTrackEvent can also be used for REST API call
    */
-  ParseResponse sendRequest(const char* httpVerb, const char* httpPath, const char* requestBody, const char* urlParams);
+    ParseResponse sendRequest(const char *httpVerb, const char *httpPath, const char *requestBody, const char *urlParams);
 
-  /*! \fn ParseResponse sendRequest(const String& httpVerb, const String& httpPath, const String& requestBody, const String& urlParams)
+    /*! \fn ParseResponse sendRequest(const String& httpVerb, const String& httpPath, const String& requestBody, const String& urlParams)
    *  \brief Directly call REST API in Parse.
    *
    *  \param   httpVerb - GET/DELETE/PUT/POST
@@ -200,9 +200,9 @@ public:
    *  NOTE: ParseObjectCreate, ParseObjectUpdate, ParseObjectDelete, ParseGETObject,
    *  ParseQuery, ParseCloudFunction, ParseTrackEvent can also be used for REST API call
    */
-  ParseResponse sendRequest(const String& httpVerb, const String& httpPath, const String& requestBody, const String& urlParams);
+    ParseResponse sendRequest(const String &httpVerb, const String &httpPath, const String &requestBody, const String &urlParams);
 
-  /*! \fn int startPushService()
+    /*! \fn int startPushService()
    *  \brief Start the push notifications service.
    *
    *  This method will start the push notification service and will listen for incoming
@@ -220,41 +220,41 @@ public:
    *  \result                    false if the push can't be started or true if
    *                             started successfully.
    */
-  bool startPushService();
+    bool startPushService();
 
-  /*! \fn void stopPushService()
+    /*! \fn void stopPushService()
    *  \brief Stop the push notifications service.
    *
    *  This method will stop the push notification service. If the push service is not started,
    *  this will do nothing.
    */
-  void stopPushService();
+    void stopPushService();
 
-  /*! \fn bool pushAvailable()
+    /*! \fn bool pushAvailable()
    *  \brief Check if there is any new push message.
    *
    *  use only after startPushService()
    *
    *  \result                    true if there is a push message, false otherwise.
    */
-  bool pushAvailable();
+    bool pushAvailable();
 
-  /*! \fn ParsePush nextPush()
+    /*! \fn ParsePush nextPush()
    *  \brief Get next push message.
    *
    *  NOTE: use only when pushAvailable() is TRUE
    *
    *  \result                    a ParsePush instance which contains one or multiple push messages
    */
-  ParsePush nextPush();
+    ParsePush nextPush();
 
-  /*! \fn void end()
+    /*! \fn void end()
    *  \brief Release resource.
    */
-  void end();
+    void end();
 
-  friend class ParseResponse;
-  friend class ParsePush;
+    friend class ParseResponse;
+    friend class ParsePush;
 };
 
 /*! \var Parse

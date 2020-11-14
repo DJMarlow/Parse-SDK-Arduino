@@ -23,9 +23,11 @@
 #include "ParseClient.h"
 #include "ParseObjectDelete.h"
 
-ParseObjectDelete::ParseObjectDelete() : ParseRequest() {
+ParseObjectDelete::ParseObjectDelete() : ParseRequest()
+{
 }
 
-ParseResponse ParseObjectDelete::send() {
-	return Parse.sendRequest("DELETE", httpPath, "", "");
+ParseResponse ParseObjectDelete::send()
+{
+    return Parse.sendRequest("DELETE", httpPath, "", "");
 }

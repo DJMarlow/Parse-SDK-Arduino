@@ -23,14 +23,16 @@
 #include "ParseClient.h"
 #include "ParseObjectUpdate.h"
 
-ParseObjectUpdate::ParseObjectUpdate() : ParseObjectCreate() {
+ParseObjectUpdate::ParseObjectUpdate() : ParseObjectCreate()
+{
 }
 
+ParseResponse ParseObjectUpdate::send()
+{
+    if (!isBodySet)
+    {
+        requestBody += "}";
+    }
 
-ParseResponse ParseObjectUpdate::send() {
-	if (!isBodySet) {
-		requestBody += "}";
-	}
-
-	return Parse.sendRequest("PUT", httpPath, requestBody, "");
+    return Parse.sendRequest("PUT", httpPath, requestBody, "");
 }
