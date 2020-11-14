@@ -22,28 +22,39 @@
 #include "ParseInternal.h"
 #include "ParseRequest.h"
 
-ParseRequest::ParseRequest() {
+ParseRequest::ParseRequest()
+{
 	requestBody = "{";
 	httpPath = "/";
 	isBodySet = false;
 }
 
-ParseRequest::~ParseRequest() {
+ParseRequest::~ParseRequest()
+{
 }
 
-void ParseRequest::setObjectId(const char* key) {
+void ParseRequest::setObjectId(const char *key)
+{
 	httpPath += "/";
 	httpPath += key;
 }
 
-void ParseRequest::setClassName(const char* className) {
-	if (className == "_User") {
+void ParseRequest::setClassName(const char *className)
+{
+	if (strcmp(className, "_User") == 0)
+	{
 		httpPath += "users";
-	} else if (className == "_Installation") {
+	}
+	else if (strcmp(className, "_Installation") == 0)
+	{
 		httpPath += "installations";
-	} else if (className == "_Role") {
+	}
+	else if (strcmp(className, "_Role") == 0)
+	{
 		httpPath += "roles";
-	} else {
+	}
+	else
+	{
 		httpPath += "classes/";
 		httpPath += className;
 	}
