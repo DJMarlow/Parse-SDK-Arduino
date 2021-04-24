@@ -19,7 +19,7 @@
  *
  */
 
-#if defined (ARDUINO_ARCH_ESP8266)
+#if defined(ARDUINO_ARCH_ESP8266) || defined(ARDUINO_ARCH_ESP32)
 
 #include "../ParsePush.h"
 #include "../ParseClient.h"
@@ -73,5 +73,5 @@ void ParsePush::read() {
     }
 }
 
-#endif // ARDUINO_ARCH_ESP8266
+#endif // defined(ARDUINO_ARCH_ESP8266) || defined(ARDUINO_ARCH_ESP32)
 
