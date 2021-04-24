@@ -19,7 +19,7 @@
  *
  */
 
-#if defined (ARDUINO_ARCH_ESP8266)
+#if defined(ARDUINO_ARCH_ESP8266) || defined(ARDUINO_ARCH_ESP32)
 
 #include "../ParseResponse.h"
 #include "../ParseInternal.h"
@@ -444,4 +444,4 @@ void ParseResponse::close() {
   freeBuffer();
 }
 
-#endif // ARDUINO_ARCH_ESP8266
+#endif // (ARDUINO_ARCH_ESP8266) || (ARDUINO_ARCH_ESP32)

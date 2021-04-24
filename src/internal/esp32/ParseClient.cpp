@@ -19,7 +19,7 @@
  *
  */
 
-#if defined (ARDUINO_ARCH_ESP8266)
+#if defined(ARDUINO_ARCH_ESP8266) || defined(ARDUINO_ARCH_ESP32)
 #include "../ParseClient.h"
 //#include "../../external/FlashStorage/FlashStorage.h"
 #include <sys/time.h>
@@ -28,7 +28,11 @@
 // of the Parse client.
 const bool DEBUG = true;
 const char* PARSE_API = "api.parse.com";
+#if defined(ARDUINO_ARCH_ESP8266)
 const char* USER_AGENT = "arduino-esp8266.v.1.0.1";
+#elif defined(ARDUINO_ARCH_ESP32)
+const char* USER_AGENT = "arduino-esp32.v.1.0.1";
+#elif
 const char* CLIENT_VERSION = "1.0.3";
 const char* PARSE_PUSH = "push.parse.com";
 const unsigned short SSL_PORT = 443;
@@ -227,7 +231,11 @@ ParseResponse ParseClient::sendRequest(const String& httpVerb, const String& htt
   int retry = 3;
   bool connected;
   
+#if defined(ARDUINO_ARCH_ESP32)
+  client.setCertificate(hostFingerprint);
+#elif defined (ARDUINO_ARCH_ESP8266)
   client.setFingerprint(hostFingerprint);
+#endif
 
   while(!(connected = client.connect(serverURL, SSL_PORT)) && retry--) {
     Serial.printf("connecting...%d\n", retry);
@@ -419,4 +427,4 @@ void ParseClient::saveLastPushTime(char *time) {
 
 ParseClient Parse;
 
-#endif // ARDUINO_ARCH_ESP8266
+#endif // (ARDUINO_ARCH_ESP8266) || (ARDUINO_ARCH_ESP32)
