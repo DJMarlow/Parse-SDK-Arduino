@@ -236,7 +236,8 @@ ParseResponse ParseClient::sendRequest(const String& httpVerb, const String& htt
   bool connected;
   
 #if defined(ARDUINO_ARCH_ESP32)
-  client.setCertificate(hostFingerprint);
+  client.setInsecure();
+  // client.setCertificate(hostFingerprint);
 #elif defined (ARDUINO_ARCH_ESP8266)
   client.setFingerprint(hostFingerprint);
 #endif
