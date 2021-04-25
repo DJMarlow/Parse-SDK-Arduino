@@ -89,7 +89,6 @@ void ParseResponse::read() {
   memset(buf + p, 0, bufSize - p);
 
   char c;
-  int i;
 
   bool data = false;
   int count = 0;
@@ -159,8 +158,6 @@ bool ParseResponse::readJsonInternal(char *buff, int sz, int* read_bytes, char s
   char in_string = '\0';
   int ch;
   int i;
-
-  char tmp[32];
 
   for (i = 0; ; ++i) {
     bool skip = false;
@@ -357,9 +354,10 @@ int ParseResponse::count() {
 
   bool first_line = true;
   bool ok = false;
+  (void)ok;
   bool done = false;
   char *ptr;
-  long len = 0;
+
   while (client->connected() && !done) {
     delay(1);
     while (client->available()) {

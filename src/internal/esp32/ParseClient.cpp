@@ -158,7 +158,6 @@ void ParseClient::setInstallationId(const char *installationId) {
 const char* ParseClient::getInstallationId() {
   if (!strlen(installationId)) {
     setInstallationId(createNewInstallationId().c_str());
-    char buff[40];
 
     if (Serial && DEBUG) {
       Serial.print("creating new installationId:");
@@ -278,7 +277,6 @@ ParseResponse ParseClient::sendRequest(const String& httpVerb, const String& htt
       sendAndEchoToSerial(client, buff);
     }
     if (requestBody.length() > 0 && httpVerb != "GET") {
-      requestBody;
       sendAndEchoToSerial(client, "Content-Type: application/json; charset=utf-8\r\n");
     } else if (urlParams.length() > 0) {
       sendAndEchoToSerial(client, "Content-Type: html/text\r\n");
@@ -328,9 +326,11 @@ bool ParseClient::startPushService() {
                 lastPushTime[0] ? lastPushTime : "null",
                 lastPushTime[0] ? "\"" : "");
             sendAndEchoToSerial(pushClient, buff);
+            return true;
         } else {
         if (Serial && DEBUG)
             Serial.println("failed to connect to push server");
+        return false;
     }
 }
 
