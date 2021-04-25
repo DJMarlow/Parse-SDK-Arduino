@@ -35,6 +35,9 @@ static const int kBufferSize = 1024;
 
 // Uncomment following line if you want to debug query response with serial output.
 // #define DEBUG_RESPONSE
+#ifdef PARSE_DEBUG_RESPONSE
+#define DEBUG_RESPONSE
+#endif
 
 ParseResponse::ParseResponse(ConnectionClient* client) {
   buf = NULL;

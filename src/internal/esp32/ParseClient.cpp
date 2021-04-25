@@ -26,7 +26,11 @@
 
 // Set DEBUG to true to see serial debug output for the main stages
 // of the Parse client.
+#ifdef PARSE_DEBUG
 const bool DEBUG = true;
+#else
+const bool DEBUG = false;
+#endif
 const char* PARSE_API = "api.parse.com";
 #if defined(ARDUINO_ARCH_ESP8266)
 const char* USER_AGENT = "arduino-esp8266.v.1.0.1";
@@ -287,6 +291,8 @@ ParseResponse ParseClient::sendRequest(const String& httpVerb, const String& htt
     sendAndEchoToSerial(client, "\r\n");
     if (requestBody.length() > 0) {
       sendAndEchoToSerial(client, requestBody.c_str());
+      if (Serial && DEBUG)
+        Serial.println();
     }
   } else {
     if (Serial && DEBUG)
