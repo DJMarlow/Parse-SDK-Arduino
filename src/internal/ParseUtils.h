@@ -48,7 +48,6 @@ public:
     int backslash = 0;
     int endWithQuote = 1;
     int keyLen = strlen(key);
-    int escape = 0;
     int jsonLevel = 0;
     if (!data || !key || !*key)
          return 0;

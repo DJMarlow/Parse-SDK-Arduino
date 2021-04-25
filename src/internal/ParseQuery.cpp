@@ -53,7 +53,7 @@ void ParseQuery::addConditionNum(const char* key, const char* comparator, double
 	addConditionKey(key);
   String stringVal = String(int(v)) + "." + String(getDecimal(v));
 
-	if (comparator == "$=") {
+	if (strcmp(comparator, "$=") == 0) {
 		whereClause += stringVal;
 	} else {
 		whereClause += "{\"";

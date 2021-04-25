@@ -37,11 +37,11 @@ void ParseRequest::setObjectId(const char* key) {
 }
 
 void ParseRequest::setClassName(const char* className) {
-	if (className == "_User") {
+	if (strcmp(className, "_User") == 0) {
 		httpPath += "users";
-	} else if (className == "_Installation") {
+	} else if (strcmp(className, "_Installation") == 0) {
 		httpPath += "installations";
-	} else if (className == "_Role") {
+	} else if (strcmp(className, "_Role") == 0) {
 		httpPath += "roles";
 	} else {
 		httpPath += "classes/";
